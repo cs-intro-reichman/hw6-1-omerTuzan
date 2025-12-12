@@ -11,6 +11,25 @@ public class Editor2 {
 
 	public static void main (String[] args){
 		//// Replace this comment with your code.
-		//// This function is similar to the main function of Editor1.java			
+		//// This function is similar to the main function of Editor1.java		
+		String fileName = args[0];
+		int Width = Integer.parseInt(args[1]);	
+		int Height = Integer.parseInt(args[2]);
+		
+		// Reads the input image and creates an empty output image
+		Color[][] imageIn = Runigram.read(fileName);
+		Color[][] imageOut = null;
+
+		// Applies the scaling to the image
+		imageOut = Runigram.scaled(imageIn, Width, Height);
+
+		// Creates a canvas in which both images will be displayed, one after the other.
+		// Next, displays the input image, and pauses for a few seconds. 
+		// Finally, displays the output image.
+		// (Notice that both images have the same dimensions).
+		Runigram.setCanvas(imageIn);
+		StdDraw.pause(3000); 
+		Runigram.display(imageOut);	
+
 	}
 }
